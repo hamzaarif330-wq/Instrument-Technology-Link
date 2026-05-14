@@ -1,0 +1,66 @@
+/* 1. Position the parent */
+.navbar-item {
+  position: relative;
+}
+
+/* 2. Hide the dropdown strictly */
+.dropdown-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 260px;
+  background: #ffffff;
+  padding: 10px 0;
+  border-radius: 4px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  
+  /* The Fix: Hide it using three methods for safety */
+  display: block; 
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none; 
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  z-index: 100;
+}
+
+/* 3. Show only on hover */
+.navbar-item:hover .dropdown-list {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+/* 4. Style the links */
+.dropdown-link {
+  color: #1a1a1a;
+  padding: 12px 20px;
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.dropdown-link:hover {
+  background-color: #f8f9fa;
+  color: #f39c12; /* Brand color */
+}
+
+
+
+
+/* Disable text selection and long-press menu on mobile */
+* {
+  -webkit-touch-callout: none;  /* iOS — disables long-press save image */
+  -webkit-user-select: none;    /* Chrome/Safari */
+  -moz-user-select: none;       /* Firefox */
+  -ms-user-select: none;        /* IE */
+  user-select: none;            /* Standard */
+}
+
+/* Re-enable selection only on inputs and textareas */
+input, textarea, [contenteditable] {
+  -webkit-user-select: text;
+  user-select: text;
+}
